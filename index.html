@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis y Hermenéutica Bíblica — CTE 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #0a0f1a;
+            --bg-secondary: #111827;
+            --bg-card: #1a2233;
+            --bg-card-hover: #1f2a3e;
+            --accent: #10b981;
+            --accent-light: #34d399;
+            --accent-glow: rgba(16, 185, 129, 0.15);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #1e293b;
+            --border-accent: #10b981;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(10, 15, 26, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        .nav-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .nav-brand span { color: var(--accent); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--accent-light); }
+        .nav-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+                var(--bg-primary);
+        }
+        .hero-content { max-width: 800px; }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-glow);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 999px;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin: 0 auto 2.5rem;
+        }
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+        .hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .hero-meta-item svg { color: var(--accent); }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { background: var(--accent-light); transform: translateY(-1px); box-shadow: 0 8px 30px rgba(16, 185, 129, 0.25); }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-accent);
+            color: var(--accent-light);
+        }
+        .btn-outline:hover { background: var(--accent-glow); }
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        /* ── SECTIONS ── */
+        section { padding: 5rem 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .section-desc {
+            color: var(--text-secondary);
+            max-width: 700px;
+            font-size: 1.05rem;
+            margin-bottom: 3rem;
+        }
+
+        /* ── OBJECTIVES ── */
+        #objetivos { background: var(--bg-secondary); }
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+        .obj-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+        .obj-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+        .obj-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--accent-glow);
+            border: 1px solid rgba(16,185,129,0.3);
+            color: var(--accent-light);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .obj-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .obj-card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
+
+        /* ── CLASES ── */
+        .clases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.25rem;
+        }
+        .clase-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .clase-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+        .clase-card-header {
+            padding: 1.5rem 1.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .clase-num {
+            min-width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #fff;
+        }
+        .clase-card-body { padding: 0.75rem 1.5rem 1.5rem; }
+        .clase-card h3 { font-size: 1rem; font-weight: 600; line-height: 1.4; }
+        .clase-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6; margin-top: 0.5rem; }
+        .clase-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            margin-top: 0.75rem;
+        }
+
+        .bloque-a .clase-num { background: linear-gradient(135deg, #10b981, #059669); }
+        .bloque-a .clase-tag { background: rgba(16,185,129,0.15); color: #34d399; }
+        .bloque-b .clase-num { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+        .bloque-b .clase-tag { background: rgba(59,130,246,0.15); color: #60a5fa; }
+        .bloque-c .clase-num { background: linear-gradient(135deg, #a855f7, #7c3aed); }
+        .bloque-c .clase-tag { background: rgba(168,85,247,0.15); color: #c084fc; }
+        .bloque-d .clase-num { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .bloque-d .clase-tag { background: rgba(245,158,11,0.15); color: #fbbf24; }
+
+        /* ── CLASE DETAIL MODAL ── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            z-index: 200;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+        .modal-overlay.active { display: flex; align-items: flex-start; justify-content: center; }
+        .modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            max-width: 800px;
+            width: 100%;
+            margin-top: 4rem;
+            padding: 2.5rem;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+        }
+        .modal-close:hover { color: var(--text-primary); border-color: var(--accent); }
+        .modal h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; padding-right: 2rem; }
+        .modal-content h3 { color: var(--accent-light); font-size: 1rem; margin: 1.5rem 0 0.75rem; }
+        .modal-content p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .modal-content ul { color: var(--text-secondary); font-size: 0.9rem; padding-left: 1.5rem; margin-bottom: 0.75rem; }
+        .modal-content li { margin-bottom: 0.4rem; }
+        .modal-content strong { color: var(--text-primary); }
+
+        /* ── METHODOLOGY ── */
+        #metodologia { background: var(--bg-secondary); }
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .method-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .method-card:hover { border-color: var(--accent); }
+        .method-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--accent-glow);
+            border: 1px solid rgba(16,185,129,0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .method-icon svg { color: var(--accent-light); }
+        .method-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .method-card p { color: var(--text-secondary); font-size: 0.85rem; }
+
+        /* ── EVALUATION ── */
+        .eval-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .eval-table th {
+            background: var(--bg-card-hover);
+            text-align: left;
+            padding: 1rem 1.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        .eval-table td {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .eval-table td:first-child { color: var(--accent-light); font-weight: 600; }
+        .eval-notice {
+            margin-top: 1.5rem;
+            padding: 1rem 1.5rem;
+            background: rgba(16,185,129,0.08);
+            border: 1px solid rgba(16,185,129,0.2);
+            border-radius: 8px;
+            color: var(--accent-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* ── BIBLIOGRAPHY ── */
+        #bibliografia { background: var(--bg-secondary); }
+        .bib-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.25rem;
+        }
+        .bib-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        .bib-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+        .bib-card p { color: var(--text-secondary); font-size: 0.85rem; font-style: italic; }
+
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-primary); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 2rem; gap: 1rem; }
+            .nav-links.active { display: flex; }
+            .nav-toggle { display: block; }
+            .clases-grid { grid-template-columns: 1fr; }
+            .hero-meta { flex-direction: column; align-items: center; gap: 0.75rem; }
+            .modal { margin-top: 1rem; padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-inner">
+        <div class="nav-brand"><span>H</span>ermeneutica CTE</div>
+        <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Menu">&#9776;</button>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#objetivos">Objetivos</a></li>
+            <li><a href="#clases">Clases</a></li>
+            <li><a href="#metodologia">Metodologia</a></li>
+            <li><a href="#evaluacion">Evaluacion</a></li>
+            <li><a href="#bibliografia">Bibliografia</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+    <div class="hero-content">
+        <div class="hero-badge">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            Programa de Estudios 2026
+        </div>
+        <h1>Analisis y Hermeneutica Biblica</h1>
+        <p>Una exploracion integral de la historia, formacion, transmision e interpretacion de las Escrituras. Desde la reconstruccion material del texto hasta los paradigmas hermeneuticos contemporaneos.</p>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                Lic. Carlos Caamano Espinoza
+            </div>
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                Martes, 19:00 h
+            </div>
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                Centro Teologico de Estudios
+            </div>
+            <div class="hero-meta-item">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                14 Unidades
+            </div>
+        </div>
+        <div class="hero-buttons">
+            <a href="#clases" class="btn">Ver contenido de clases</a>
+            <a href="#evaluacion" class="btn btn-outline">Evaluacion</a>
+        </div>
+    </div>
+</section>
+
+<!-- OBJETIVOS -->
+<section id="objetivos">
+    <div class="container">
+        <p class="section-label">Competencias</p>
+        <h2 class="section-title">Objetivos de Aprendizaje</h2>
+        <p class="section-desc">El curso desarrolla competencias progresivas desde el analisis material del texto hasta la reflexion etica y hermeneutica mas avanzada.</p>
+        <div class="objectives-grid">
+            <div class="obj-card">
+                <div class="obj-number">1</div>
+                <h3>Realidad Material y Canon</h3>
+                <p>Comprender la realidad material de los textos biblicos, el proceso de transmision de los manuscritos y la consolidacion historica del canon.</p>
+            </div>
+            <div class="obj-card">
+                <div class="obj-number">2</div>
+                <h3>Alta Critica y Critica Textual</h3>
+                <p>Aplicar herramientas metodologicas de la "Alta Critica" y la critica textual para analizar los contextos de produccion, las fuentes y el proceso de redaccion de la Biblia.</p>
+            </div>
+            <div class="obj-card">
+                <div class="obj-number">3</div>
+                <h3>Dimension Literaria</h3>
+                <p>Analizar las Escrituras en su dimension literaria, apreciando la poetica hebrea, las estrategias narrativas y los complejos hilos de intertextualidad.</p>
+            </div>
+            <div class="obj-card">
+                <div class="obj-number">4</div>
+                <h3>Conciencia Autocritica</h3>
+                <p>Desarrollar una conciencia autocritica al interpretar el texto, evaluando las presuposiciones propias mediante hermeneuticas de la sospecha y resolviendo las tensiones eticas del relato.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CLASES -->
+<section id="clases">
+    <div class="container">
+        <p class="section-label">Plan de trabajo</p>
+        <h2 class="section-title">Contenido de las 10 Clases</h2>
+        <p class="section-desc">Cada clase esta disenada para construir sobre la anterior, dotando al estudiante de herramientas progresivamente mas complejas para el analisis e interpretacion de las Escrituras.</p>
+        <div class="clases-grid">
+
+            <div class="clase-card bloque-a" onclick="openModal(0)">
+                <div class="clase-card-header">
+                    <div class="clase-num">01</div>
+                    <div>
+                        <h3>El Texto Material y la Critica Textual</h3>
+                        <span class="clase-tag">Fundamentos</span>
+                    </div>
+                </div>
+                <div class="clase-card-body">
+                    <p>La "Baja Critica": papiros, codices, errores de copistas y metodos de reconstruccion textual. Casos de estudio: el final de Marcos y la mujer adultera.</p>
+                </div>
+            </div>
+
+            <div class="clase-card bloque-a" onclick="openModal(1)">
+                <div class="clase-card-header">
+                    <div class="clase-num">02</div>
+                    <div>
+                        <h3>La Formacion del Canon y las Versiones Antiguas</h3>
+                        <span class="clase-tag">Fundamentos</span>
+                    </div>
+                </div>
+                <div class="clase-card-body">
+                    <p>Del rollo al codice. La fluidez textual en Qumran, la Septuaginta (LXX) como testigo textual y los fenomenos de edicion teologica.</p>
+                </div>
+            </div>
+
+            <div class="clase-card bloque-b" onclick="openModal(2)">
+                <div class="clase-card-header">
+                    <div class="clase-num">03</div>
+                    <div>
+                        <h3>La "Alta Critica": Metodos Historico-Criticos</h3>
+                        <span class="clase-tag">Metodos</span>
+                    </div>
+                </div>
+                <div class="clase-card-body">
+                    <p>La Hipotesis Documental (JEDP), el Problema Sinoptico, la Fuente Q y la Critica de Redaccion: el editor como teologo.</p>
+                </div>
+            </div>
+
+            <div class="clase-card bloque-b" onclick="openModal(3)">
+                <div class="clase-card-header">
+                    <div class="clase-num">04</div>
+                    <div>
+                        <h3>Arqueologia y el Mundo Social de la Biblia</h3>
+                        <span class="clase-tag">Metodos</span>
+                    </div>
+                </div>
+                <div class="clase-card-body">
+                    <p>El Sitz im Leben, cultura material, religion popular, el Proximo Oriente Antiguo (Ugarit, Mari) y la tension entre Israel biblico e historico.</p>
+                </div>
+            </div>
+
+            <div class="clase-card bloque-c" onclick="openModal(4)">
+                <div class="clase-card-header">
+                    <div class="clase-num">05</div>
+                    <div>
+                        <h3>La Biblia como Literatura: Narrativa y Poetica</h3>
+                        <span class="clase-tag">Literario</span>
+                    </div>
+                </div>
+                <div class="clase-card-body">
+                    <p>Lectura sincronica, paralelismo hebreo, intensificacion poetica, reticencia narrativa, caracterizacion compleja y la "rima de ideas".</p>
+                </div>
+            </div>
+
+            <div class="clase-card bloque-c" onclick="openModal(5)">
+                <div class="clase-card-header">
+                    <div class="clase-num">06</div>
+                    <div>
+                        <h3>Intertextualidad y Reescritura Biblica</h3>
+                        <span class="clase-tag">Literario</span>
+                    </div>
+                </div>
+                <div class="clase-card-body">
+                    <p>La "Biblia Reescrita" (Jubileos, Pseudo-Filon), exegesis intra-biblica, tipologia, citas, alusiones y ecos en el Nuevo Testamento.</p>
+                </div>
+            </div>
+
+            <div class="clase-card bloque-c" onclick="openModal(6)">
+                <div class="clase-card-header">
+                    <div class="clase-num">07</div>
+                    <div>
+                        <h3>Historia de la Interpretacion Antigua</h3>
+                        <span class="clase-tag">Literario</span>
+                    </div>
+                </div>
+                <div class="clase-card-body">
+                    <p>Midrash, Pesher de Qumran, la influencia helena, alegoria de Origenes y la exegesis patristica. Las cuatro asunciones del interprete antiguo.</p>
+                </div>
+            </div>
+
+            <div class="clase-card bloque-d" onclick="openModal(7)">
+                <div class="clase-card-header">
+                    <div class="clase-num">08</div>
+                    <div>
+                        <h3>Hermeneuticas de la Sospecha</h3>
+                        <span class="clase-tag">Hermeneutica</span>
+                    </div>
+                </div>
+                <div class="clase-card-body">
+                    <p>Postmodernidad, deconstruccion, critica feminista (Daly, Trible, Schussler Fiorenza), lecturas postcoloniales y materialistas.</p>
+                </div>
+            </div>
+
+            <div class="clase-card bloque-d" onclick="openModal(8)">
+                <div class="clase-card-header">
+                    <div class="clase-num">09</div>
+                    <div>
+                        <h3>Etica, Violencia y Acomodacion Divina</h3>
+                        <span class="clase-tag">Hermeneutica</span>
+                    </div>
+                </div>
+                <div class="clase-card-body">
+                    <p>El herem, la teoria del mandato divino, de Marcion a la alegoria, la acomodacion divina y la etica narrativa como espejo moral.</p>
+                </div>
+            </div>
+
+            <div class="clase-card bloque-d" onclick="openModal(9)">
+                <div class="clase-card-header">
+                    <div class="clase-num">10</div>
+                    <div>
+                        <h3>Teologia Biblica y Paragenesis Poetica</h3>
+                        <span class="clase-tag">Hermeneutica</span>
+                    </div>
+                </div>
+                <div class="clase-card-body">
+                    <p>Critica canonica (Childs y Sanders), el canon como proceso dinamico, la paragenesis poetica y el circulo hermeneutico completo.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+    <div class="modal">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <h2 id="modalTitle"></h2>
+        <div class="modal-content" id="modalContent"></div>
+    </div>
+</div>
+
+<!-- METODOLOGIA -->
+<section id="metodologia">
+    <div class="container">
+        <p class="section-label">Pedagogia</p>
+        <h2 class="section-title">Metodologia del Curso</h2>
+        <p class="section-desc">El curso combina cuatro modalidades pedagogicas complementarias que articulan la transmision teorica con la practica exegetica activa.</p>
+        <div class="method-grid">
+            <div class="method-card">
+                <div class="method-icon">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                </div>
+                <h3>Exposicion del Docente</h3>
+                <p>Contextualizacion del marco teorico, sintesis de las escuelas de pensamiento y guia en las reglas interpretativas para cada metodo.</p>
+            </div>
+            <div class="method-card">
+                <div class="method-icon">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
+                </div>
+                <h3>Participacion Activa</h3>
+                <p>Dialogo analitico en asamblea, cuestionamiento de posturas tradicionales y debate exegetico guiado.</p>
+            </div>
+            <div class="method-card">
+                <div class="method-icon">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </div>
+                <h3>Trabajo Grupal</h3>
+                <p>Aplicacion de las metodologias analizadas directamente sobre pericopas o fragmentos de la Biblia asignados.</p>
+            </div>
+            <div class="method-card">
+                <div class="method-icon">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                </div>
+                <h3>Test de Salida</h3>
+                <p>Breve evaluacion escrita de comprobacion al concluir cada sesion para fijar conocimientos clave.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EVALUACION -->
+<section id="evaluacion">
+    <div class="container">
+        <p class="section-label">Criterios</p>
+        <h2 class="section-title">Evaluacion</h2>
+        <p class="section-desc">El sistema de evaluacion combina instrumentos formativos y sumativos para asegurar la consolidacion progresiva del aprendizaje.</p>
+        <table class="eval-table">
+            <thead>
+                <tr>
+                    <th>Instrumento</th>
+                    <th>Descripcion</th>
+                    <th>Proposito</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Test de salida</td>
+                    <td>Control y consolidacion de las herramientas ensenadas al termino de cada clase.</td>
+                    <td>Formativo: fijacion de conocimientos clave por sesion.</td>
+                </tr>
+                <tr>
+                    <td>Quizz</td>
+                    <td>Pruebas de conocimiento especifico y lectura bibliografica.</td>
+                    <td>Sumativo: verificacion de lecturas y comprension conceptual.</td>
+                </tr>
+                <tr>
+                    <td>Presentaciones</td>
+                    <td>Defensa publica por parte del estudiante, sustentando investigaciones grupales o individuales.</td>
+                    <td>Sumativo: demostracion de competencias analiticas e investigativas.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="eval-notice">Requisito de aprobacion: 70% de asistencia a clases documentada.</div>
+    </div>
+</section>
+
+<!-- BIBLIOGRAFIA -->
+<section id="bibliografia">
+    <div class="container">
+        <p class="section-label">Recursos</p>
+        <h2 class="section-title">Bibliografia Basica</h2>
+        <p class="section-desc">Las siguientes obras constituyen el corpus de referencia fundamental para el curso.</p>
+        <div class="bib-grid">
+            <div class="bib-card">
+                <h4>Alter &amp; Kermode</h4>
+                <p>The Literary Guide to the Bible. London: Collins.</p>
+            </div>
+            <div class="bib-card">
+                <h4>Barton, J.</h4>
+                <p>Reading the Old Testament: Method in Biblical Study. London: Darton, Longman &amp; Todd.</p>
+            </div>
+            <div class="bib-card">
+                <h4>Ehrman, B. D.</h4>
+                <p>A Brief Introduction to the New Testament. Oxford: Oxford University Press.</p>
+            </div>
+            <div class="bib-card">
+                <h4>Kugel, J. L.</h4>
+                <p>Traditions of the Bible: A Guide to the Bible As It Was at the Start of the Common Era. Cambridge: Harvard University Press.</p>
+            </div>
+            <div class="bib-card">
+                <h4>Schussler Fiorenza, E.</h4>
+                <p>Searching the Scriptures: A Feminist Introduction. New York: Crossroad.</p>
+            </div>
+            <div class="bib-card">
+                <h4>Tov, E.</h4>
+                <p>Textual Criticism of the Hebrew Bible. Minneapolis: Fortress Press.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>Analisis y Hermeneutica Biblica &mdash; Centro Teologico de Estudios, 2026</p>
+        <p style="margin-top: 0.5rem;">Docente: <a href="#">Lic. Carlos Caamano Espinoza</a></p>
+    </div>
+</footer>
+
+<script>
+const clasesData = [
+    {
+        title: "Clase 1: El Texto Material y la Critica Textual",
+        content: `
+            <h3>1. Introduccion: La "Baja Critica"</h3>
+            <p>La critica textual es la disciplina fundamental que precede a cualquier interpretacion. Su objetivo es recuperar la forma mas antigua posible del texto, ya que <strong>no poseemos los autografos</strong> (los manuscritos originales).</p>
+            <h3>2. La Realidad Material de los Manuscritos</h3>
+            <ul>
+                <li><strong>Papiros:</strong> Material mas antiguo (ej. P52, c. 125 d.C.), fragiles y fragmentarios.</li>
+                <li><strong>El Codice:</strong> Los cristianos adoptaron rapidamente este formato (hojas cosidas), permitiendo agrupar colecciones en un solo volumen.</li>
+                <li><strong>Pergamino:</strong> A partir del siglo IV, permitio grandes codices unciales como el Sinaiticus y el Vaticanus.</li>
+            </ul>
+            <h3>3. Tipologia de Errores Textuales</h3>
+            <ul>
+                <li><strong>Involuntarios:</strong> Confusion de letras (itacismo), haplografia, dittografia, homoioteleuton.</li>
+                <li><strong>Intencionales:</strong> Armonizacion, mejoras estilisticas, correcciones teologicas (tiqqune sopherim), conflacion.</li>
+            </ul>
+            <h3>4. Principios de Reconstruccion</h3>
+            <ul>
+                <li><strong>Lectio difficilior potior:</strong> La lectura mas dificil es preferible.</li>
+                <li><strong>Lectio brevior potior:</strong> La lectura mas corta es preferible.</li>
+                <li><strong>La lectura que explica el origen de las otras</strong> es la mejor candidata.</li>
+            </ul>
+            <h3>5. Estudios de Caso</h3>
+            <ul>
+                <li><strong>El Final de Marcos (16:9-20):</strong> Los manuscritos mas antiguos terminan en 16:8.</li>
+                <li><strong>La Mujer Adultera (Juan 7:53-8:11):</strong> No aparece en los manuscritos mas antiguos de Juan.</li>
+            </ul>
+        `
+    },
+    {
+        title: "Clase 2: La Formacion del Canon y las Versiones Antiguas",
+        content: `
+            <h3>1. La Materialidad del Canon</h3>
+            <p>El paso del <strong>rollo al codice</strong> fue revolucionario: permitio agrupar colecciones enteras en un solo volumen, facilitando la percepcion de estos libros como una unidad cerrada y autoritativa.</p>
+            <h3>2. La Fluidez del Texto en el AT</h3>
+            <ul>
+                <li><strong>Texto Masorético (TM):</strong> Fijado en la Edad Media (c. 1000 d.C.).</li>
+                <li><strong>Qumran:</strong> Demostro una fluidez textual considerable antes de la estandarizacion. Habia diferentes ediciones de libros biblicos circulando simultaneamente.</li>
+            </ul>
+            <h3>3. La Septuaginta (LXX)</h3>
+            <ul>
+                <li>No es una traduccion literal; atestigua un texto hebreo (<em>Vorlage</em>) diferente al TM.</li>
+                <li>El NT cita el AT usando la LXX, planteando la pregunta: si difiere del hebreo, ¿cual es el texto inspirado?</li>
+            </ul>
+            <h3>4. Edicion y Correccion Teologica</h3>
+            <p>Los <strong>Tiqqune Sopherim</strong> son casos documentados donde los escribas alteraron el texto por piedad. La autoridad del texto no impedia su actualizacion para la comunidad.</p>
+        `
+    },
+    {
+        title: "Clase 3: La Alta Critica: Metodos Historico-Criticos",
+        content: `
+            <h3>1. Las Preguntas Geneticas</h3>
+            <p>La Alta Critica pregunta: ¿De donde vino esto? ¿Quien lo escribio realmente? ¿Cuando? ¿Por que? La Biblia es una <strong>biblioteca formada a lo largo del tiempo</strong>.</p>
+            <h3>2. Critica de Fuentes: La Hipotesis Documental (JEDP)</h3>
+            <ul>
+                <li><strong>J (Yahvista):</strong> Narrativa vivida, usa el nombre Yahweh.</li>
+                <li><strong>E (Elohista):</strong> Usa Elohim, centrado en el norte de Israel.</li>
+                <li><strong>D (Deuteronomista):</strong> Estilo sermoneador, enfocado en Ley y Templo.</li>
+                <li><strong>P (Sacerdotal):</strong> Genealogias, rituales, fechas y orden (Genesis 1).</li>
+            </ul>
+            <h3>3. El Problema Sinoptico</h3>
+            <ul>
+                <li><strong>Prioridad de Marcos:</strong> Es el mas corto y tiene el griego mas rudo.</li>
+                <li><strong>La Fuente Q:</strong> Material comun de Mateo y Lucas no presente en Marcos.</li>
+            </ul>
+            <h3>4. Critica de Redaccion</h3>
+            <p>Los redactores no eran torpes "tijereteadores", sino verdaderos autores y teologos con un proposito teologico claro.</p>
+        `
+    },
+    {
+        title: "Clase 4: Arqueologia y el Mundo Social de la Biblia",
+        content: `
+            <h3>1. Del Texto a la Tierra</h3>
+            <p>El enfoque moderno busca reconstruir el <strong>Sitz im Leben</strong>: ¿Como era la vida cotidiana que el texto da por sentada y no explica?</p>
+            <h3>2. La Cultura Material y los "Sin Voz"</h3>
+            <ul>
+                <li><strong>Religion Popular:</strong> Miles de figurillas de Asera en hogares israelitas revelan tension entre teologia oficial y religion practica.</li>
+                <li><strong>Estructura Social:</strong> La "casa de cuatro habitaciones" israelita revela la estructura familiar extendida.</li>
+            </ul>
+            <h3>3. Israel en su Contexto</h3>
+            <ul>
+                <li><strong>Ugarit:</strong> Clave para entender la poesia hebrea y su relacion con los himnos cananeos.</li>
+                <li><strong>Mari:</strong> Demuestra que la profecia no era exclusiva de Israel.</li>
+                <li><strong>Leyes:</strong> Codigos como el de Hammurabi muestran paralelos con la Tora.</li>
+            </ul>
+            <h3>4. Israel Biblico vs. Israel Historico</h3>
+            <p>La arqueologia nos obliga a leer el texto como una <strong>construccion teologica</strong>, distinguiendo entre el evento historico y la interpretacion de fe.</p>
+        `
+    },
+    {
+        title: "Clase 5: La Biblia como Literatura: Narrativa y Poetica",
+        content: `
+            <h3>1. Lectura Sincronica</h3>
+            <p>Se lee el texto en su forma final como una <strong>unidad artistica acabada</strong>, independientemente de como se formo.</p>
+            <h3>2. Poetica Hebrea</h3>
+            <ul>
+                <li><strong>Paralelismo:</strong> La unidad basica es el par de lineas que se relacionan (sinonimo, antitetico, sintetico).</li>
+                <li><strong>Intensificacion ("A, y que es mas, B"):</strong> La segunda linea siempre lleva la idea mas lejos, nunca es mera repeticion.</li>
+                <li><strong>Lenguaje destilado:</strong> Poetica laconica y eliptica, centrada en la metafora.</li>
+            </ul>
+            <h3>3. El Arte de la Narrativa</h3>
+            <ul>
+                <li><strong>Reticencia:</strong> El narrador omite detalles cruciales (ej. Genesis 22), obligando al lector a llenar los vacios.</li>
+                <li><strong>Mostrar, no decir:</strong> El narrador muestra consecuencias en vez de emitir juicios morales explicitos.</li>
+                <li><strong>Repeticion con variacion:</strong> Las diferencias en las repeticiones son vitales para la interpretacion.</li>
+            </ul>
+            <h3>4. Caracterizacion Compleja</h3>
+            <p>Los personajes biblicos son profundamente defectuosos: Jacob, David, Pedro. La Biblia no es una fabula moral.</p>
+        `
+    },
+    {
+        title: "Clase 6: Intertextualidad y Reescritura Biblica",
+        content: `
+            <h3>1. Intertextualidad</h3>
+            <p>Todo texto es una <strong>absorcion y transformacion</strong> de otros textos. La Biblia es una "Gran Narrativa" donde cada texto dialoga con los demas.</p>
+            <h3>2. La "Biblia Reescrita"</h3>
+            <ul>
+                <li><strong>Jubileos:</strong> Vuelve a contar Genesis y Exodo, insertando leyes y resolviendo ambiguedades.</li>
+                <li><strong>Pseudo-Filon:</strong> Integra episodios secundarios para realizar exegesis implicita.</li>
+                <li>Estrategias: <strong>Zoom In</strong> (expandir detalles) y <strong>Zoom Out</strong> (comprimir bloques).</li>
+            </ul>
+            <h3>3. Exegesis Intra-biblica</h3>
+            <p>Los propios autores biblicos interpretaban textos anteriores dentro de la misma Biblia (Deuteronomio actualiza las leyes del Exodo).</p>
+            <h3>4. Intertextualidad en el NT</h3>
+            <ul>
+                <li><strong>Tipologia:</strong> Adan, Moises, David como prefiguraciones de Jesus.</li>
+                <li><strong>Jerarquia:</strong> Citas explicitas, alusiones y ecos.</li>
+                <li><strong>Mateo:</strong> Presenta a Jesus como un nuevo Moises, re-escenificando la historia de Israel.</li>
+            </ul>
+        `
+    },
+    {
+        title: "Clase 7: Historia de la Interpretacion Antigua",
+        content: `
+            <h3>1. La Mentalidad del Interprete Antiguo</h3>
+            <p>Cuatro asunciones gobernaban toda lectura antigua: el texto es <strong>criptico, relevante, perfecto</strong> y <strong>divinamente inspirado</strong>.</p>
+            <h3>2. Hermeneutica Judia</h3>
+            <ul>
+                <li><strong>Midrash:</strong> Reglas logicas (middot) como <em>qal wa-homer</em> (a fortiori) y <em>gezerah shavah</em> (analogia verbal).</li>
+                <li><strong>Pesher (Qumran):</strong> Lectura profetica que decodificaba textos antiguos como predicciones del presente de la comunidad.</li>
+            </ul>
+            <h3>3. Influencia Helena</h3>
+            <ul>
+                <li><strong>Origenes y la Hexapla:</strong> Aplico metodos homericos a la Biblia usando signos aristárquicos.</li>
+                <li><strong>Alegoria:</strong> Las guerras de Josue como luchas espirituales del alma contra los vicios.</li>
+            </ul>
+            <h3>4. Exegesis Patristica</h3>
+            <p>La interpretacion como <strong>ascenso mistico</strong>: Agustin describe siete etapas para el lector, desde el "temor del Senor" hasta la "sabiduria".</p>
+        `
+    },
+    {
+        title: "Clase 8: Hermeneuticas de la Sospecha",
+        content: `
+            <h3>1. El Fin de la Inocencia</h3>
+            <p>La postmodernidad rechaza la neutralidad del interprete. La <strong>hermeneutica de la sospecha</strong> (Ricoeur) se basa en Marx, Nietzsche y Freud: lo que aparece en la superficie a menudo oculta intereses subyacentes.</p>
+            <h3>2. Deconstruccion</h3>
+            <ul>
+                <li><strong>Derrida:</strong> Los textos contienen las semillas de su propia contradiccion.</li>
+                <li><strong>La muerte del Autor:</strong> El significado no lo fija el autor; las interpretaciones son multiples y provisionales.</li>
+            </ul>
+            <h3>3. Critica Feminista</h3>
+            <ul>
+                <li><strong>Mary Daly:</strong> Rechazo total de la Biblia como irremediablemente patriarcal.</li>
+                <li><strong>Phyllis Trible:</strong> Revisionismo, buscando elementos liberadores en el texto.</li>
+                <li><strong>Schussler Fiorenza:</strong> Reconstruccion historica del liderazgo de las mujeres.</li>
+                <li><strong>Textos de Terror:</strong> Jueces 19, la hija de Jefte.</li>
+            </ul>
+            <h3>4. Critica Postcolonial y Materialista</h3>
+            <p>Analiza como la Biblia fue usada como <strong>arma colonial</strong> y busca lecturas que empoderen a los marginados actuales.</p>
+        `
+    },
+    {
+        title: "Clase 9: Etica, Violencia y Acomodacion Divina",
+        content: `
+            <h3>1. El Desafio Etico</h3>
+            <p>Existe una tension entre la <strong>autoridad del texto</strong> y la <strong>conciencia moral</strong> del lector ante pasajes de violencia o genocidio.</p>
+            <h3>2. El Herem y la Teoria del Mandato Divino</h3>
+            <p>Tomas de Aquino argumento que Dios, como autor de la vida, puede ordenar la muerte como juicio. Sin embargo, esta explicacion a menudo no satisface la sensibilidad moderna.</p>
+            <h3>3. Respuestas Historicas</h3>
+            <ul>
+                <li><strong>Marcion:</strong> Rechazo total del AT como obra de un dios inferior.</li>
+                <li><strong>Origenes:</strong> Alegoria: las guerras son luchas espirituales.</li>
+                <li><strong>Caridad hermeneutica:</strong> Cuanto mas canonico es un texto, mas esfuerzo se hace para "salvarlo".</li>
+            </ul>
+            <h3>4. La Acomodacion Divina</h3>
+            <p>Dios se "acomodo" a las limitaciones culturales de los receptores como <strong>punto de partida pedagogico</strong>, una etapa temporal destinada a ser superada.</p>
+            <h3>5. Etica Narrativa</h3>
+            <p>Leer estas historias no como dogmas de conducta, sino como <strong>narrativas complejas que forman el caracter</strong>. Se lucha con el texto, no se lo recorta.</p>
+        `
+    },
+    {
+        title: "Clase 10: Teologia Biblica y Paragenesis Poetica",
+        content: `
+            <h3>1. El Texto Final y la Comunidad</h3>
+            <p>Despues del analisis critico, surge la pregunta: ¿que hacemos con el libro que tenemos hoy? La mayoria de los creyentes leen la Biblia, no "la fuente J".</p>
+            <h3>2. Critica Canonica</h3>
+            <ul>
+                <li><strong>Brevard Childs:</strong> El objeto apropiado para la reflexion teologica es la <strong>forma final</strong> del texto canonico, no las fuentes reconstruidas.</li>
+                <li><strong>James Sanders:</strong> El canon es un <strong>proceso dinamico</strong> que provee estabilidad e identidad pero tambien adaptabilidad a nuevas crisis.</li>
+            </ul>
+            <h3>3. Paragenesis Poetica</h3>
+            <p>El acto de <strong>reescribir creativamente</strong> un texto biblico: una interpretacion que vive "junto al" texto como una nueva obra literaria. Los poetas, al volver a contar una historia biblica, realizan un acto hermeneutico profundo.</p>
+            <h3>4. El Circulo Hermeneutico Completo</h3>
+            <ul>
+                <li><strong>La Espiral:</strong> Pre-comprension → Critica → Segunda ingenuidad (Ricoeur).</li>
+                <li><strong>La Imaginacion Disciplinada:</strong> Imaginacion para reconstruir y aplicar, disciplinada por el conocimiento historico.</li>
+                <li><strong>El Texto Vivo:</strong> La Biblia no es un fosil; demuestra su capacidad de "vivir mas alla" de su contexto original.</li>
+            </ul>
+        `
+    }
+];
+
+function openModal(index) {
+    document.getElementById('modalTitle').textContent = clasesData[index].title;
+    document.getElementById('modalContent').innerHTML = clasesData[index].content;
+    document.getElementById('modalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+
+</body>
+</html>
