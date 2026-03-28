@@ -268,6 +268,40 @@
         .bloque-d .clase-num { background: linear-gradient(135deg, #f59e0b, #d97706); }
         .bloque-d .clase-tag { background: rgba(245,158,11,0.15); color: #fbbf24; }
 
+        .clase-card-body .video-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.75rem;
+            padding: 0.3rem 0.75rem;
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #f87171;
+        }
+
+        /* ── VIDEO INTRO SECTION ── */
+        .video-intro-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .video-intro-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .video-intro-container iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border-radius: 12px;
+        }
+
         /* ── CLASE DETAIL MODAL ── */
         .modal-overlay {
             display: none;
@@ -309,6 +343,23 @@
         }
         .modal-close:hover { color: var(--text-primary); border-color: var(--accent); }
         .modal h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; padding-right: 2rem; }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
         .modal-content h3 { color: var(--accent-light); font-size: 1rem; margin: 1.5rem 0 0.75rem; }
         .modal-content p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.75rem; }
         .modal-content ul { color: var(--text-secondary); font-size: 0.9rem; padding-left: 1.5rem; margin-bottom: 0.75rem; }
@@ -634,6 +685,7 @@
                 </div>
                 <div class="clase-card-body">
                     <p>La "Baja Crítica": papiros, códices, errores de copistas y métodos de reconstrucción textual. Casos de estudio: el final de Marcos y la mujer adúltera.</p>
+                    <span class="video-badge"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23 12l-22 12v-24l22 12z"/></svg> Video de clase</span>
                 </div>
             </div>
 
@@ -647,6 +699,7 @@
                 </div>
                 <div class="clase-card-body">
                     <p>Del rollo al códice. La fluidez textual en Qumrán, la Septuaginta (LXX) como testigo textual y los fenómenos de edición teológica.</p>
+                    <span class="video-badge"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23 12l-22 12v-24l22 12z"/></svg> Video de clase</span>
                 </div>
             </div>
 
@@ -660,6 +713,7 @@
                 </div>
                 <div class="clase-card-body">
                     <p>La Hipótesis Documental (JEDP), el Problema Sinóptico, la Fuente Q y la Crítica de Redacción: el editor como teólogo.</p>
+                    <span class="video-badge"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23 12l-22 12v-24l22 12z"/></svg> Video de clase</span>
                 </div>
             </div>
 
@@ -673,6 +727,7 @@
                 </div>
                 <div class="clase-card-body">
                     <p>El Sitz im Leben, cultura material, religión popular, el Próximo Oriente Antiguo (Ugarit, Mari) y la tensión entre Israel bíblico e histórico.</p>
+                    <span class="video-badge"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23 12l-22 12v-24l22 12z"/></svg> Video de clase</span>
                 </div>
             </div>
 
@@ -686,6 +741,7 @@
                 </div>
                 <div class="clase-card-body">
                     <p>Lectura sincrónica, paralelismo hebreo, intensificación poética, reticencia narrativa, carácterización compleja y la "rima de ideas".</p>
+                    <span class="video-badge"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23 12l-22 12v-24l22 12z"/></svg> Video de clase</span>
                 </div>
             </div>
 
@@ -699,6 +755,7 @@
                 </div>
                 <div class="clase-card-body">
                     <p>La "Biblia Reescrita" (Jubileos, Pseudo-Filón), exégesis intra-bíblica, tipología, citas, alusiones y ecos en el Nuevo Testamento.</p>
+                    <span class="video-badge"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23 12l-22 12v-24l22 12z"/></svg> Video de clase</span>
                 </div>
             </div>
 
@@ -712,6 +769,7 @@
                 </div>
                 <div class="clase-card-body">
                     <p>Midrash, Pesher de Qumrán, la influencia helena, alegoría de Orígenes y la exégesis patrística. Las cuatro asunciones del intérprete antiguo.</p>
+                    <span class="video-badge"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23 12l-22 12v-24l22 12z"/></svg> Video de clase</span>
                 </div>
             </div>
 
@@ -725,6 +783,7 @@
                 </div>
                 <div class="clase-card-body">
                     <p>Postmodernidad, deconstrucción, crítica feminista (Daly, Trible, Schüssler Fiorenza), lecturas postcoloniales y materialistas.</p>
+                    <span class="video-badge"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23 12l-22 12v-24l22 12z"/></svg> Video de clase</span>
                 </div>
             </div>
 
@@ -738,6 +797,7 @@
                 </div>
                 <div class="clase-card-body">
                     <p>El herem, la teoría del mandato divino, de Marción a la alegoría, la acomodación divina y la ética narrativa como espejo moral.</p>
+                    <span class="video-badge"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23 12l-22 12v-24l22 12z"/></svg> Video de clase</span>
                 </div>
             </div>
 
@@ -751,6 +811,7 @@
                 </div>
                 <div class="clase-card-body">
                     <p>Crítica canónica (Childs y Sanders), el canon como proceso dinámico, la paragénesis poética y el círculo hermenéutico completo.</p>
+                    <span class="video-badge"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M23 12l-22 12v-24l22 12z"/></svg> Video de clase</span>
                 </div>
             </div>
 
@@ -877,6 +938,20 @@
     </div>
 </section>
 
+<!-- VIDEO INTRODUCTORIO -->
+<section id="video-intro">
+    <div class="container">
+        <p class="section-label">Recurso audiovisual</p>
+        <h2 class="section-title">Video Introductorio del Curso</h2>
+        <p class="section-desc">Una presentación general del enfoque, los objetivos y la estructura del curso de Análisis y Hermenéutica Bíblica.</p>
+        <div class="video-intro-wrapper">
+            <div class="video-intro-container">
+                <iframe src="https://www.youtube.com/embed/2mpEEYGcKtM" title="Video introductorio del curso" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
     <div class="container">
@@ -889,6 +964,7 @@
 const clasesData = [
     {
         title: "Clase 1: El Texto Material y la Crítica Textual",
+        video: "WE7z92aW7Xs",
         content: `
             <h3>1. Introducción: ¿Qué es la "Baja Crítica"?</h3>
             <p>La crítica textual, a veces denominada "baja crítica" (en contraste con la "alta crítica" que estudia la autoría y la historia), es la disciplina fundamental que precede a cualquier interpretación. Su objetivo es recuperar la forma más antigua posible del texto o reconstruir el texto original basandose en los manuscritos supervivientes, ya que <strong>no poseemos los autografos</strong> (los manuscritos originales escritos por los autores biblicos).</p>
@@ -963,6 +1039,7 @@ const clasesData = [
     },
     {
         title: "Clase 2: La Formación del Canon y las Versiones Antiguas",
+        video: "qswfWqy-XUY",
         content: `
             <h3>1. Introducción: La Materialidad del Canon</h3>
             <p>Para comprender como se formo el Canon (la lista oficial de libros), primero debemos entender la tecnologia que permitio agruparlos. La Biblia no "cayo del cielo" encuadernada en cuero; su formación física dicto en gran parte su estructura.</p>
@@ -1007,6 +1084,7 @@ const clasesData = [
     },
     {
         title: "Clase 3: La Alta Crítica: Métodos Histórico-Críticos",
+        video: "20Grms0URWI",
         content: `
             <h3>1. Introducción: ¿Por qué "Alta" Crítica?</h3>
             <p>A menudo, el término "crítica" asusta a los estudiantes de la Biblia, pero aqui se usa en su sentido académico de "análisis" o "discernimiento", no de ataque.</p>
@@ -1062,6 +1140,7 @@ const clasesData = [
     },
     {
         title: "Clase 4: Arqueología y el Mundo Social de la Biblia",
+        video: "hcfaFEphlq4",
         content: `
             <h3>1. Introducción: Del Texto a la Tierra</h3>
             <p>Hasta ahora hemos analizado la Biblia como un objeto literario. Sin embargo, los eventos narrados no ocurrieron en el vacio, sino en un tiempo y espacio físico reales.</p>
@@ -1103,6 +1182,7 @@ const clasesData = [
     },
     {
         title: "Clase 5: La Biblia como Literatura: Narrativa y Poética",
+        video: "Yy_TjqNFqy8",
         content: `
             <h3>1. Introducción: El Giro Literario y el Enfoque Sincrónico</h3>
             <p>Hasta las últimas décadas, el estudio academico de la Biblia estuvo dominado por la crítica histórica (diacrónica), que fragmentaba el texto buscando sus fuentes originales. La crítica literaria moderna, o "Nueva Critica", propone un enfoque <strong>sincronico</strong>: leer el texto en su forma final y canónica como una unidad artística acabada.</p>
@@ -1160,6 +1240,7 @@ const clasesData = [
     },
     {
         title: "Clase 6: Intertextualidad y Reescritura Bíblica",
+        video: "GniIvGGpx7M",
         content: `
             <h3>1. Introducción: ¿Qué es la Intertextualidad?</h3>
             <p>El concepto de que un texto nunca es una creación absolutamente original, sino que forma parte de un universo dinámico de textos previos, es la base de esta sesion.</p>
@@ -1213,6 +1294,7 @@ const clasesData = [
     },
     {
         title: "Clase 7: Historia de la Interpretación Antigua (Recepción)",
+        video: "MhDyu_l9tMk",
         content: `
             <h3>1. Introducción: La Mentalidad del Intérprete Antiguo</h3>
             <p>Para entender como leian los antiguos (judios y cristiaños de los primeros siglos), debemos despojarnos de nuestra obsesión moderna por la "historia fáctica" y entender sus presuposiciones fundamentales.</p>
@@ -1270,6 +1352,7 @@ const clasesData = [
     },
     {
         title: "Clase 8: Hermenéuticas de la Sospecha: Ideología y Postmodernidad",
+        video: "MhDyu_l9tMk",
         content: `
             <h3>1. Introducción: El Fin de la Inocencia y los "Maestros de la Sospecha"</h3>
             <ul>
@@ -1316,6 +1399,7 @@ const clasesData = [
     },
     {
         title: "Clase 9: Ética, Violencia y el Problema de la Acomodación",
+        video: "0tW2caAons8",
         content: `
             <h3>1. Introducción: El Desafío Ético del Texto</h3>
             <p>Al acercarse a la Biblia, el interprete no puede ignorar que el texto a menudo presenta desafíos morales profundos. No es solo un libro de devoción, sino un registro antiguo que incluye guerras, leyes severas y comportamientos desconcertantes.</p>
@@ -1368,6 +1452,7 @@ const clasesData = [
     },
     {
         title: "Clase 10: Teología Bíblica y Paragénesis Poética: La Palabra Viva",
+        video: "P0LH6zIFtno",
         content: `
             <h3>1. Introducción: El Texto "Final" y la Comunidad</h3>
             <p>Después de todo el analisis critico, nos queda la pregunta: ¿Que hacemos con el libro que tenemos en las maños hoy? La mayoria de los creyentes no leen "la fuente J" o "el documento Q"; leen la Biblia.</p>
@@ -1417,7 +1502,10 @@ const clasesData = [
 
 function openModal(index) {
     document.getElementById('modalTitle').textContent = clasesData[index].title;
-    document.getElementById('modalContent').innerHTML = clasesData[index].content;
+    const videoEmbed = clasesData[index].video
+        ? `<div class="video-container"><iframe src="https://www.youtube.com/embed/${clasesData[index].video}" title="Video de la clase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`
+        : '';
+    document.getElementById('modalContent').innerHTML = videoEmbed + clasesData[index].content;
     document.getElementById('modalOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
