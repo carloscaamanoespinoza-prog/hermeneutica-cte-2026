@@ -400,6 +400,72 @@
         .bib-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
         .bib-card p { color: var(--text-secondary); font-size: 0.85rem; font-style: italic; }
 
+        /* ── DOCENTE ── */
+        #docente { background: var(--bg-secondary); }
+        .docente-card {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+        .docente-foto {
+            width: 160px;
+            height: 160px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 3px solid var(--accent);
+        }
+        .docente-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        .docente-subtitle {
+            color: var(--accent-light);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        .docente-bio {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .docente-bio strong { color: var(--text-primary); }
+        .docente-tags {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .docente-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .docente-tag-icon {
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .docente-card { flex-direction: column; align-items: center; text-align: center; padding: 1.5rem; }
+            .docente-foto { width: 130px; height: 130px; }
+            .docente-tags { align-items: stretch; }
+        }
+
         /* ── FOOTER ── */
         footer {
             border-top: 1px solid var(--border);
@@ -436,6 +502,7 @@
             <li><a href="#metodologia">Metodologia</a></li>
             <li><a href="#evaluacion">Evaluacion</a></li>
             <li><a href="#bibliografia">Bibliografia</a></li>
+            <li><a href="#docente">Docente</a></li>
         </ul>
     </div>
 </nav>
@@ -761,6 +828,50 @@
             <div class="bib-card">
                 <h4>Tov, E.</h4>
                 <p>Textual Criticism of the Hebrew Bible. Minneapolis: Fortress Press.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DOCENTE -->
+<section id="docente">
+    <div class="container">
+        <p class="section-label">Profesor</p>
+        <h2 class="section-title">Acerca del Docente</h2>
+        <div class="docente-card">
+            <img src="foto-perfil.png" alt="Carlos Caamaño Espinoza" class="docente-foto">
+            <div class="docente-info">
+                <h3>Carlos Caamaño Espinoza</h3>
+                <p class="docente-subtitle">Licenciado en Teologia · Profesor de Educacion General Basica</p>
+                <p class="docente-bio">
+                    Profesor licenciado en Teologia y docente de Educacion General Basica, con profunda vocacion por la formacion biblica rigurosa y la pedagogia activa. Su campo de especializacion e interes se centra en el <strong>Nuevo Testamento</strong> y el <strong>Griego Biblico del Nuevo Testamento</strong>, combinando la investigacion exegetica con el uso de herramientas digitales e inteligencia artificial para el estudio de las Escrituras. Ejerce como Decano en el CTE Chile (Comunidad Teologica Evangelica de Chile) y capacita docentes y ministros en metodologia, tecnologia educativa y analisis textual.
+                </p>
+                <div class="docente-tags">
+                    <div class="docente-tag">
+                        <span class="docente-tag-icon">🎓</span>
+                        Licenciado en Teologia — formacion en Teologia Biblica, Sistematica y Ministerio Pastoral
+                    </div>
+                    <div class="docente-tag">
+                        <span class="docente-tag-icon">🏫</span>
+                        Profesor de Educacion General Basica
+                    </div>
+                    <div class="docente-tag">
+                        <span class="docente-tag-icon">📖</span>
+                        Especialista en Nuevo Testamento y Griego Biblico del NT (Koine)
+                    </div>
+                    <div class="docente-tag">
+                        <span class="docente-tag-icon">🏛</span>
+                        Decano — CTE Chile (Comunidad Teologica Evangelica de Chile)
+                    </div>
+                    <div class="docente-tag">
+                        <span class="docente-tag-icon">🤖</span>
+                        Integracion de IA al estudio e investigacion biblica
+                    </div>
+                    <div class="docente-tag">
+                        <span class="docente-tag-icon">📍</span>
+                        Concepcion, Region del Biobio, Chile
+                    </div>
+                </div>
             </div>
         </div>
     </div>
