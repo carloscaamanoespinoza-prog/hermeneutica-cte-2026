@@ -360,6 +360,27 @@
             height: 100%;
             border-radius: 10px;
         }
+
+        .pdf-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+        }
+        .pdf-download-btn:hover {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(220, 38, 38, 0.35);
+        }
         .modal-content h3 { color: var(--accent-light); font-size: 1rem; margin: 1.5rem 0 0.75rem; }
         .modal-content p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.75rem; }
         .modal-content ul { color: var(--text-secondary); font-size: 0.9rem; padding-left: 1.5rem; margin-bottom: 0.75rem; }
@@ -951,7 +972,7 @@ const clasesData = [
     {
         title: "Clase 1: El Texto Material y la Crítica Textual",
         video: "WE7z92aW7Xs",
-        content: `
+        pdf: "docs/clase-1.pdf", pdfLabel: "Análisis y Hermenéutica Bíblica", content: `
             <h3>1. Introducción: ¿Qué es la "Baja Crítica"?</h3>
             <p>La crítica textual, a veces denominada "baja crítica" (en contraste con la "alta crítica" que estudia la autoría y la historia), es la disciplina fundamental que precede a cualquier interpretación. Su objetivo es recuperar la forma más antigua posible del texto o reconstruir el texto original basandose en los manuscritos supervivientes, ya que <strong>no poseemos los autografos</strong> (los manuscritos originales escritos por los autores biblicos).</p>
             <p>La necesidad de esta disciplina surge de una realidad material ineludible: durante más de mil años, el Nuevo Testamento y el Antiguo Testamento fueron copiados a mano, palabra por palabra, letra por letra. Ningún escriba es infalible; por lo tanto, entre los miles de manuscritos existentes, no hay dos que sean identicos en todas sus palabras.</p>
@@ -1026,7 +1047,7 @@ const clasesData = [
     {
         title: "Clase 2: La Formación del Canon y las Versiones Antiguas",
         video: "qswfWqy-XUY",
-        content: `
+        pdf: "docs/clase-2.pdf", pdfLabel: "La Formación del Canon", content: `
             <h3>1. Introducción: La Materialidad del Canon</h3>
             <p>Para comprender como se formo el Canon (la lista oficial de libros), primero debemos entender la tecnologia que permitio agruparlos. La Biblia no "cayo del cielo" encuadernada en cuero; su formación física dicto en gran parte su estructura.</p>
             <ul>
@@ -1071,7 +1092,7 @@ const clasesData = [
     {
         title: "Clase 3: La Alta Crítica: Métodos Histórico-Críticos",
         video: "20Grms0URWI",
-        content: `
+        pdf: "docs/clase-3.pdf", pdfLabel: "Introducción a la Alta Crítica", content: `
             <h3>1. Introducción: ¿Por qué "Alta" Crítica?</h3>
             <p>A menudo, el término "crítica" asusta a los estudiantes de la Biblia, pero aqui se usa en su sentido académico de "análisis" o "discernimiento", no de ataque.</p>
             <ul>
@@ -1127,7 +1148,7 @@ const clasesData = [
     {
         title: "Clase 4: Arqueología y el Mundo Social de la Biblia",
         video: "hcfaFEphlq4",
-        content: `
+        pdf: "docs/clase-4.pdf", pdfLabel: "Arqueología y Contexto Social del Mundo Bíblico", content: `
             <h3>1. Introducción: Del Texto a la Tierra</h3>
             <p>Hasta ahora hemos analizado la Biblia como un objeto literario. Sin embargo, los eventos narrados no ocurrieron en el vacio, sino en un tiempo y espacio físico reales.</p>
             <ul>
@@ -1169,7 +1190,7 @@ const clasesData = [
     {
         title: "Clase 5: La Biblia como Literatura: Narrativa y Poética",
         video: "Yy_TjqNFqy8",
-        content: `
+        pdf: "docs/clase-5.pdf", pdfLabel: "La Biblia como Literatura", content: `
             <h3>1. Introducción: El Giro Literario y el Enfoque Sincrónico</h3>
             <p>Hasta las últimas décadas, el estudio academico de la Biblia estuvo dominado por la crítica histórica (diacrónica), que fragmentaba el texto buscando sus fuentes originales. La crítica literaria moderna, o "Nueva Critica", propone un enfoque <strong>sincronico</strong>: leer el texto en su forma final y canónica como una unidad artística acabada.</p>
             <ul>
@@ -1227,7 +1248,7 @@ const clasesData = [
     {
         title: "Clase 6: Intertextualidad y Reescritura Bíblica",
         video: "GniIvGGpx7M",
-        content: `
+        pdf: "docs/clase-6.pdf", pdfLabel: "El Tejido del Tiempo", content: `
             <h3>1. Introducción: ¿Qué es la Intertextualidad?</h3>
             <p>El concepto de que un texto nunca es una creación absolutamente original, sino que forma parte de un universo dinámico de textos previos, es la base de esta sesion.</p>
             <ul>
@@ -1281,7 +1302,7 @@ const clasesData = [
     {
         title: "Clase 7: Historia de la Interpretación Antigua (Recepción)",
         video: "MhDyu_l9tMk",
-        content: `
+        pdf: "docs/clase-7.pdf", pdfLabel: "Historia de la Interpretación Bíblica Antigua", content: `
             <h3>1. Introducción: La Mentalidad del Intérprete Antiguo</h3>
             <p>Para entender como leian los antiguos (judios y cristiaños de los primeros siglos), debemos despojarnos de nuestra obsesión moderna por la "historia fáctica" y entender sus presuposiciones fundamentales.</p>
             <ul>
@@ -1339,7 +1360,7 @@ const clasesData = [
     {
         title: "Clase 8: Hermenéuticas de la Sospecha: Ideología y Postmodernidad",
         video: "MhDyu_l9tMk",
-        content: `
+        pdf: "docs/clase-8.pdf", pdfLabel: "Hermenéutica de la Sospecha", content: `
             <h3>1. Introducción: El Fin de la Inocencia y los "Maestros de la Sospecha"</h3>
             <ul>
                 <li><strong>El colapso de la objetividad:</strong> El modelo tradiciónal ("moderno") asumia que un interprete podia dejar de lado sus prejuicios y, mediante un metodo científico, extraer el significado único y verdadero del texto. La postmodernidad rechaza esta premisa, argumentando que <strong>nadie es neutral</strong>. Todos leemos desde un género, una clase social, una raza y una ubicación política. La pretensión de neutralidad es vista como una estrategia para ocultar compromisos ideológicos.</li>
@@ -1386,7 +1407,7 @@ const clasesData = [
     {
         title: "Clase 9: Ética, Violencia y el Problema de la Acomodación",
         video: "0tW2caAons8",
-        content: `
+        pdf: "docs/clase-9.pdf", pdfLabel: "Ética, Violencia y Acomodación", content: `
             <h3>1. Introducción: El Desafío Ético del Texto</h3>
             <p>Al acercarse a la Biblia, el interprete no puede ignorar que el texto a menudo presenta desafíos morales profundos. No es solo un libro de devoción, sino un registro antiguo que incluye guerras, leyes severas y comportamientos desconcertantes.</p>
             <ul>
@@ -1491,7 +1512,10 @@ function openModal(index) {
     const videoEmbed = clasesData[index].video
         ? `<div class="video-container"><iframe src="https://www.youtube.com/embed/${clasesData[index].video}" title="Video de la clase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`
         : '';
-    document.getElementById('modalContent').innerHTML = videoEmbed + clasesData[index].content;
+    const pdfBtn = clasesData[index].pdf
+        ? `<a href="${clasesData[index].pdf}" target="_blank" download class="pdf-download-btn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="flex-shrink:0"><path d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5zM12 11l4 4h-3v4h-2v-4H8l4-4z"/></svg> Descargar PDF: ${clasesData[index].pdfLabel}</a>`
+        : '';
+    document.getElementById('modalContent').innerHTML = videoEmbed + pdfBtn + clasesData[index].content;
     document.getElementById('modalOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
